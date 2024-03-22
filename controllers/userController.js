@@ -2,11 +2,12 @@ const User = require("../models/User");
 const CryptoJs = require("crypto-js");
 
 const updateUser = async (req, res) => {
-    const { user, contact, email, pwd, image } = req.body;
+    const { user, contact, email, image, pwd } = req.body;
     if (!user ||!contact ||!email ||!pwd ||!image) return res.status(401).json("Field cannot be empty");
     try {
         const foundUser = await User.findOne({_id: req.params.id}).exec();
         if (!foundUser) return res.status(401).json("User not found");
+        
         const encryptPwd = CryptoJs.AES.encrypt(pwd, process.env.HASHEDPWD);
         if (user) foundUser.username = user
         if (contact) foundUser.contact = contact

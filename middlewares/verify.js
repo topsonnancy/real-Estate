@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 
-const verifyToken = (req, res) =>{
+const verifyToken = (req, res,next) =>{
     const authHeaders = req.headers["authorization"]
     if(authHeaders) {
     const token = req.headers.authorization.split(' ')[1];
@@ -17,14 +17,14 @@ const verifyToken = (req, res) =>{
 }
 
 }
-const verifyAndAuthenticate = (req, res) => {
+const verifyAndAuthenticate = (req, res,next) => {
     verifyToken(req, res, () => {
         if(req.user.id === req.params.id || req.user.isAdmin) {
             next();
         }
     })
 }
-const verifyAdminOnly = (req, res) => {
+const verifyAdminOnly = (req, res,next) => {
     verifyToken(req, res, () => {
         if(req.user.isAdmin) {
             next();

@@ -6,6 +6,7 @@ const connectDB = require("./config/dbConfig");
 // initialize express
 const app = express();
 
+
 // initialize Json 
 app.use(express.json());
 
@@ -15,7 +16,9 @@ connectDB()
 // Register Route
 app.use("/api/register", require("./routers/auth/register"))
 app.use("/api/login", require("./routers/auth/login"))
-app.use("api/user", require("./routers/user"))
+app.use("/api/user", require("./routers/user"))
+app.use("/api/property", require("./routers/property"))
+
 
 // Register Port
 const PORT = process.env.PORT || 5000;
