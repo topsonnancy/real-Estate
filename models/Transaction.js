@@ -2,19 +2,19 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema
 
 // Define the transaction schema
-const transactionSchema = new mongoose.Schema({
+const transactionSchema = new Schema({
   property: {
-    type: mongoose.Schema.Types.ObjectId,
+    type: String,
     ref: 'Property', // Reference to the Property model
     required: true
   },
-  buyer: {
-    type: mongoose.Schema.Types.ObjectId,
+  buyerName: {
+    type: String,
     ref: 'User', // Reference to the User model
     required: true
   },
-  seller: {
-    type: mongoose.Schema.Types.ObjectId,
+  sellerName: {
+    type: String,
     ref: 'User', // Reference to the User model
     required: true
   },
@@ -23,7 +23,7 @@ const transactionSchema = new mongoose.Schema({
     enum: ['Sale', 'Rent'], // Transaction types: Sale or Rent
     required: true
   },
-  price: {
+  amount: {
     type: Number,
     required: true
   },

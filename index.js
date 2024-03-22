@@ -18,6 +18,7 @@ app.use("/api/register", require("./routers/auth/register"))
 app.use("/api/login", require("./routers/auth/login"))
 app.use("/api/user", require("./routers/user"))
 app.use("/api/property", require("./routers/property"))
+app.use("/api/transaction", require("./routers/transaction"))
 
 
 // Register Port
