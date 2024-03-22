@@ -13,7 +13,9 @@ app.use(express.json());
 connectDB()
 
 // Register Route
-app.use(/api/register, require("./routers/auth/register"))
+app.use("/api/register", require("./routers/auth/register"))
+app.use("/api/login", require("./routers/auth/login"))
+app.use("api/user", require("./routers/user"))
 
 // Register Port
 const PORT = process.env.PORT || 5000;
