@@ -2,10 +2,10 @@ require("dotenv").config()
 const express = require("express");
 const mongoose = require("mongoose");
 const connectDB = require("./config/dbConfig");
+const nodemailer = require('nodemailer');
 
 // initialize express
 const app = express();
-
 
 // initialize Json 
 app.use(express.json());
