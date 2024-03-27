@@ -23,6 +23,7 @@ const updateProperty = async (req, res) => {
     try {
         const foundProperty = await Property.findOne({_id: req.params.id}).exec()
         if (!foundProperty) return res.status(302).json("No property with id found")
+        
         if (propertyType) foundProperty.property = propertyType
         if (address) foundProperty.address = address
         if (price) foundProperty.price = price
