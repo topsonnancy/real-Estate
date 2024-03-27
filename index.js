@@ -21,7 +21,7 @@ app.use("/api/transaction", require("./routers/transaction"))
 
 
 // Register Port
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5050;
 
 
 mongoose.connection.once("open", () => {
